@@ -40,7 +40,7 @@ def make_decision(hungry, food_in_freezer):
  
 This function has many different expected outputs depending on its arguments. A clean way to test this in a readable form using Pysmine decorators would be the following:
 
-```
+``` python
 import unittest import TestCase
 from pysmine import with_nested_specs, describe, when, it
 
