@@ -16,10 +16,10 @@ pip install pysmine
 ```
 
 ## Decorators
-`with_nested_specs`: used on the test class. 
-`describe`: used to describe the unit to be tested. 
-`when`: used to add context to the test. 
-`it`: used to describe the expected behaviour. 
+`with_nested_specs`: used on the test class.  
+`describe`: used to describe the unit to be tested.  
+`when`: used to add context to the test.  
+`it`: used to describe the expected behaviour.  
 
 ### Usage
 Let's say we have the following function we want to test:
