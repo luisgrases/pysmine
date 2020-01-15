@@ -87,7 +87,7 @@ class TestExample(TestCase):
                 self.food_in_freezer = True
 
                 @it
-                def it_tells_to_not_eat_the_food(self):
+                def tells_to_not_eat_the_food(self):
                     self.assertEqual(make_decision(self.hungry, self.food_in_freezer), "Do not eat!")
 
             @when
