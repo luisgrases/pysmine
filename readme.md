@@ -1,22 +1,30 @@
-## A python unittest enhancer
-Pysmine provide bdd capabilities to python unittest testing framework.
-Pysmine is simply a set of decorator functions that can be used in your tests to provide bdd capabilitites.
+![Image of Pysmine](https://i.ibb.co/d5bQ4Tg/logo.png)
 
+# A Python Unittest Enhancer
+
+Pysmine is simply a set of decorator functions that provide Behavior Driven Development capabilities to python unittest testing framework or pytest.
+
+## Benefits
+All Behavior Driven Development benefits
 No need to change current configurations
 No need to use a separate test runner
-Backwards compatibility
-Failing test are easier to debug.
+Light-weight
 
-Finally an option to make testing enjoyable
-
-
-### Installation
+## Installation
+```
 pip install pysmine
+```
+
+## Decorators
+`with_nested_specs`: used on the test class.
+`describe`: used to describe the unit to be tested
+`when`: used to add context to the test
+`it`: used to describe the expected behaviour
 
 ### Usage
-
 Let's say we have the following function we want to test:
-```def make_decision(hungry, food_in_freezer):
+```
+def make_decision(hungry, food_in_freezer):
     if hungry and not food_in_freezer:
         return 'Buy Food!'
 
@@ -29,8 +37,8 @@ Let's say we have the following function we want to test:
     if not hungry and not food_in_freezer:
         return 'Do not care!'
  ```
-
-Using pysmine decorators you can test it the following way:
+ 
+This function has many different expected outputs depending on its arguments. A clean way to test this in a readable form using Pysmine decorators would be the following:
 
 ```
 import unittest import TestCase
@@ -90,14 +98,15 @@ class TestExample(TestCase):
                 def tells_to_not_care(self):
                     self.assertEqual(make_decision(self.hungry, self.food_in_freezer), "Do not care!")
 ```
-REMEMBER: If you want to pass values down to a nested test, assign that value to self.
+
+Just run the tests as you normally would and let the magic happen.
 
 
 ## How does it work?
 
 Before these tests run, the hierachy of tests is traversed and new tests are generated. This generated tests are the tests that actually run.
 
-This is an example of a test that would be generated from the previous code:
+An example of a test that would be generated from the example would be the following:
 
 ```
 def  test__I_am_hungry__there_is_food_in_the_freezer__tells_to_eat_the_food(self):
@@ -106,7 +115,9 @@ def  test__I_am_hungry__there_is_food_in_the_freezer__tells_to_eat_the_food(self
     tells_to_eat_the_food(self)
 ```
 
+As you can see, it is basically calling every child individually with `self` passed as an argument. This means `self` should be used in order to pass values between the functions that compose the test.
+
 
 ## Common Issues
 ### TypeError: arg 5 (closure) must be tuple
-This is because you are trying to access a value in a parent scope. Remember that the only way to pass values to a nested test is to assign the value to the self object.
+This is because you are trying to access a value defined in a parent scope. Remember that the only way to pass values to a from the functions that compose a nested test is to assign the value to the `self` object.
