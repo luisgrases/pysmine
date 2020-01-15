@@ -108,7 +108,7 @@ Before these tests run, the hierachy of tests is traversed and new tests are gen
 
 An example of a test that would be generated from the example would be the following:
 
-```
+``` python
 def  test__I_am_hungry__there_is_food_in_the_freezer__tells_to_eat_the_food(self):
     I_am_hungry(self)
     there_is_food_in_the_freezer(self)
