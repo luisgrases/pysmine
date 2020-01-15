@@ -23,7 +23,7 @@ pip install pysmine
 
 ### Usage
 Let's say we have the following function we want to test:
-```
+``` python
 def make_decision(hungry, food_in_freezer):
     if hungry and not food_in_freezer:
         return 'Buy Food!'
