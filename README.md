@@ -5,10 +5,10 @@
 Pysmine is simply a set of decorator functions that provide Behavior Driven Development capabilities to python unittest testing framework or pytest.
 
 ## Benefits
-All Behavior Driven Development benefits
-No need to change current configurations
-No need to use a separate test runner
-Light-weight
+All Behavior Driven Development benefits.  
+No need to change current configurations.  
+No need to use a separate test runner.  
+Light-weight.  
 
 ## Installation
 ```
